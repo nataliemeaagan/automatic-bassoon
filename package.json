@@ -6,6 +6,7 @@
   "scripts": {
     "sync": "node sync.js",
     "test": "node test-apis.js",
+    "test:full": "node test-ghl-api-detailed.js",
     "setup": "node setup-notion-database.js",
     "import": "node import-csv.js"
   },
