@@ -9,6 +9,10 @@ node_modules/
 *.log
 npm-debug.log*
 
+# CSV exports (may contain sensitive data)
+exports/*.csv
+!exports/sample-campaigns.csv
+
 # OS files
 .DS_Store
 Thumbs.db

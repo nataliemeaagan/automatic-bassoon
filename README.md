@@ -4,18 +4,29 @@ Automatically sync your GoHighLevel newsletter campaign statistics to Notion.
 
 ## Features
 
-✅ Syncs campaign performance metrics:
-- Opens
-- Clicks
-- Unsubscribes
-- Bounces
-- Replies
-- Open Rate
-- Click Rate
+✅ **Two Sync Methods:**
+- **API Sync**: Automatic syncing via GoHighLevel API
+- **CSV Import**: Complete data import from GoHighLevel exports
 
-✅ Automatic duplicate detection (updates existing campaigns)
-✅ Easy to schedule with cron jobs
-✅ Secure credential management with `.env`
+✅ **Comprehensive Metrics:**
+- Opens, Clicks, Unsubscribes
+- Bounces, Replies
+- Open Rate, Click Rate
+- Recipients, Status, Send Date
+
+✅ **Smart Features:**
+- Automatic duplicate detection (updates existing campaigns)
+- Flexible column mapping for CSV imports
+- Easy scheduling with cron or launchd
+- Secure credential management
+
+## Quick Start
+
+**First time setup? Start here:** → [LOCAL-SETUP.md](LOCAL-SETUP.md)
+
+**Using CSV import?** → [CSV-IMPORT-GUIDE.md](CSV-IMPORT-GUIDE.md)
+
+**Mac automation?** → [MAC-AUTOMATION.md](MAC-AUTOMATION.md)
 
 ## Setup Instructions
 
@@ -78,20 +89,51 @@ npm install
 
 ## Usage
 
-### Manual Sync
+### Method 1: API Sync
 
-Run the sync once:
+Run the API sync once:
 
 ```bash
 npm run sync
 ```
 
-### Test API Connections
+This fetches campaigns directly from GoHighLevel's API and syncs to Notion.
 
-Verify your API credentials are working:
+**Note:** Due to API limitations, some campaign statistics may not be available. See Method 2 for complete data.
+
+### Method 2: CSV Import (Recommended)
+
+For complete campaign statistics:
+
+1. **Export from GoHighLevel:**
+   - Marketing → Email → Campaigns → Export
+
+2. **Save to exports folder:**
+   ```bash
+   # Save your CSV to:
+   exports/your-campaigns.csv
+   ```
+
+3. **Import to Notion:**
+   ```bash
+   npm run import exports/your-campaigns.csv
+   ```
+
+**See [CSV-IMPORT-GUIDE.md](CSV-IMPORT-GUIDE.md) for detailed instructions.**
+
+### Test Your Setup
+
+Verify your API credentials and database:
 
 ```bash
+# Test API connections
 npm test
+
+# Verify Notion database schema
+npm run setup
+
+# Test CSV import with sample data
+npm run import exports/sample-campaigns.csv
 ```
 
 ### Automated Sync with Cron
