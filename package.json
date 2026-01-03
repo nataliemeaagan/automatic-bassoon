@@ -1,0 +1,19 @@
+{
+  "name": "gohighlevel-notion-sync",
+  "version": "1.0.0",
+  "description": "Sync GoHighLevel newsletter campaign statistics to Notion",
+  "main": "sync.js",
+  "scripts": {
+    "sync": "node sync.js",
+    "test": "node test-apis.js",
+    "setup": "node setup-notion-database.js"
+  },
+  "keywords": ["gohighlevel", "notion", "sync", "email", "campaigns"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "axios": "^1.6.5",
+    "dotenv": "^16.3.1"
+  }
+}
