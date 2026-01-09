@@ -1,8 +1,15 @@
-# GoHighLevel → Notion Campaign Sync
+# Business Integrations → Notion Sync
 
-Automatically sync your GoHighLevel newsletter campaign statistics to Notion.
+Automatically sync your business tools to Notion.
+
+## Supported Integrations
+
+- **GoHighLevel** → Sync newsletter campaign statistics
+- **Fireflies.ai** → Sync meeting transcripts and notes
 
 ## Features
+
+### GoHighLevel Integration
 
 ✅ **Two Sync Methods:**
 - **API Sync**: Automatic syncing via GoHighLevel API
@@ -14,19 +21,46 @@ Automatically sync your GoHighLevel newsletter campaign statistics to Notion.
 - Open Rate, Click Rate
 - Recipients, Status, Send Date
 
+### Fireflies Integration
+
+✅ **Meeting Management:**
+- Automatic sync of meeting transcripts
+- Full attendee tracking
+- Guest email capture
+- Direct links to Fireflies recordings
+
 ✅ **Smart Features:**
-- Automatic duplicate detection (updates existing campaigns)
-- Flexible column mapping for CSV imports
+- Automatic duplicate detection (updates existing entries)
+- Formatted transcripts with speaker names
 - Easy scheduling with cron or launchd
 - Secure credential management
 
 ## Quick Start
 
+### GoHighLevel Setup
 **First time setup? Start here:** → [LOCAL-SETUP.md](LOCAL-SETUP.md)
 
 **Using CSV import?** → [CSV-IMPORT-GUIDE.md](CSV-IMPORT-GUIDE.md)
 
 **Mac automation?** → [MAC-AUTOMATION.md](MAC-AUTOMATION.md)
+
+### Fireflies Setup
+**Complete setup guide:** → [FIREFLIES-SETUP.md](FIREFLIES-SETUP.md)
+
+**Quick start:**
+```bash
+# Install dependencies
+npm install
+
+# Test API connections
+npm run test:fireflies
+
+# Setup and verify Notion database
+npm run setup:fireflies
+
+# Sync meetings to Notion
+npm run sync:fireflies
+```
 
 ## Setup Instructions
 
@@ -206,16 +240,43 @@ You can deploy this to run automatically:
 
 If you find that certain metrics aren't syncing, this is likely due to API endpoint limitations. Check the GoHighLevel API documentation for updates.
 
+## Available Commands
+
+### GoHighLevel Commands
+```bash
+npm run sync              # Sync GoHighLevel campaigns to Notion
+npm run import <csv>      # Import campaigns from CSV export
+npm run setup             # Verify GoHighLevel Notion database
+npm test                  # Test GoHighLevel API connection
+npm run test:full         # Detailed GoHighLevel API test
+```
+
+### Fireflies Commands
+```bash
+npm run sync:fireflies    # Sync Fireflies meetings to Notion
+npm run setup:fireflies   # Verify Fireflies Notion database
+npm run test:fireflies    # Test Fireflies API connection
+```
+
 ## File Structure
 
 ```
 automatic-bassoon/
-├── .env                  # Your API credentials (not committed)
-├── .gitignore           # Excludes sensitive files
-├── package.json         # Node.js dependencies
-├── sync.js              # Main sync script
-├── test-apis.js         # API connection tester
-└── README.md            # This file
+├── .env                          # Your API credentials (not committed)
+├── .gitignore                    # Excludes sensitive files
+├── package.json                  # Node.js dependencies
+├── sync.js                       # GoHighLevel sync script
+├── fireflies-sync.js             # Fireflies sync script
+├── test-apis.js                  # GoHighLevel API tester
+├── test-fireflies-api.js         # Fireflies API tester
+├── setup-notion-database.js      # GoHighLevel DB setup
+├── setup-fireflies-database.js   # Fireflies DB setup
+├── import-csv.js                 # CSV import utility
+├── README.md                     # This file
+├── FIREFLIES-SETUP.md            # Fireflies setup guide
+├── LOCAL-SETUP.md                # Local setup guide
+├── CSV-IMPORT-GUIDE.md           # CSV import guide
+└── MAC-AUTOMATION.md             # Mac automation guide
 ```
 
 ## Security Notes
@@ -228,8 +289,13 @@ automatic-bassoon/
 
 For issues or questions:
 1. Check the troubleshooting section above
-2. Review GoHighLevel API docs: https://marketplace.gohighlevel.com/docs/
-3. Review Notion API docs: https://developers.notion.com/
+2. Review API documentation:
+   - **GoHighLevel**: https://marketplace.gohighlevel.com/docs/
+   - **Fireflies**: https://docs.fireflies.ai/
+   - **Notion**: https://developers.notion.com/
+3. See integration-specific guides:
+   - [FIREFLIES-SETUP.md](FIREFLIES-SETUP.md) for Fireflies troubleshooting
+   - [LOCAL-SETUP.md](LOCAL-SETUP.md) for GoHighLevel troubleshooting
 
 ## License
 

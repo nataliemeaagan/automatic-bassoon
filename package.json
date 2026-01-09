@@ -1,16 +1,19 @@
 {
   "name": "gohighlevel-notion-sync",
-  "version": "1.0.0",
-  "description": "Sync GoHighLevel newsletter campaign statistics to Notion",
+  "version": "1.1.0",
+  "description": "Sync GoHighLevel newsletter campaigns and Fireflies meetings to Notion",
   "main": "sync.js",
   "scripts": {
     "sync": "node sync.js",
+    "sync:fireflies": "node fireflies-sync.js",
     "test": "node test-apis.js",
+    "test:fireflies": "node test-fireflies-api.js",
     "test:full": "node test-ghl-api-detailed.js",
     "setup": "node setup-notion-database.js",
+    "setup:fireflies": "node setup-fireflies-database.js",
     "import": "node import-csv.js"
   },
-  "keywords": ["gohighlevel", "notion", "sync", "email", "campaigns"],
+  "keywords": ["gohighlevel", "notion", "sync", "email", "campaigns", "fireflies", "meetings", "transcripts"],
   "author": "",
   "license": "ISC",
   "dependencies": {
